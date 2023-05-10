@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repaso</title>
+</head>
+
+<body>
+
+    <div id="myApp">
+        <h1>Nombre del tema {{nombre}} </h1>
+
+        <input type="text" v-on:keypress.enter="addQuote" v-model="somethingToSay">
+        <ul>
+            <templeta v-for="({quote, author}, index) in quotes" :key="index">
+                <li>
+                    <span >{{index+1}}.- {{quote}}</span>
+                    <blockquote v-if="author">-{{author}}</blockquote>
+                </li>
+            </templeta>
+        </ul>
+
+        <button v-on:click="toggleIf">V-If</button>
+        <button v-on:click="toggleShow">V-Show</button>
+
+        <div v-if="mostrarIf">
+            <p>Mostrando con v-if</p>
+        </div>
+
+        <div v-show="mostrarShow">
+            <p>Mostrando con v-show</p>
+        </div>
+
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
