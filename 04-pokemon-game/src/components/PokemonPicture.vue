@@ -1,9 +1,15 @@
-<template>
+import { required } from 'yargs';
+<template lang="">
   <div class="pokemon-container">
-    <div>
-      <img class="hidden-pokemon" :src="imgSrc" alt="pokemon" />
-      <img v-if="showPokemon" class="fade-in" :src="imgSrc" alt="pokemon" />
-    </div>
+    <img 
+    class="hidden-pokemon" 
+    :src="imgSrc" 
+    alt="pokemon" />
+    <img 
+    v-if="showPokemon" 
+    class="fade-in" 
+    :src="imgSrc" 
+    alt="pokemon" />
   </div>
 </template>
 
@@ -14,11 +20,11 @@ export default {
       type: Number,
       required: true,
     },
-    showPokemon: {
-      type: Boolean,
+    showPokemon:{
+      type:Boolean,
       required: true,
-      default: false,
-    },
+      default: false
+    }
   },
   computed: {
     imgSrc() {
@@ -35,11 +41,13 @@ export default {
 }
 img {
   height: 200px;
-    user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -webkit-user-drag: none;
-    -webkit-user-select: none;
+  position: absolute;
+  right: 32%;
+  user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
 }
 .hidden-pokemon {
   filter: brightness(0);
